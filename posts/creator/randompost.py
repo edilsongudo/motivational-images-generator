@@ -144,7 +144,7 @@ class Posts:
                 #     y_text += height * 2.2
 
                 w, h = image.size
-                image = image.resize(  ( int(w/5), int(h/5)   )   )
+                image = image.resize(  ( int(w/2), int(h/2)   )   )
 
                 image.save(os.path.join(mediaroot, f"images/created/image{time}.png"))
                 return f"image{time}.png"

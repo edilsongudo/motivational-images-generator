@@ -21,12 +21,13 @@ $(document).ready(function() {
                         data: json,
                         type: 'post',
                         success: function(response) {
-                            $('img').attr('src', '../../../media/images/created/' + response.response)
+                            $('img').attr('src', '../../../media/images/created/' + response.response).on('load', function(){
                             $('#download').attr('href', '../../../media/images/download/' + response.response)
                             $('.spinner').css('display', 'none')
                             $('#download').css('display', 'block')
                             $('#generate').css('display', 'block')
                             $('img').css('display', 'block')
+                            })
                             $('span.nav-link').text(response.credits + ' Downloads Remaining')
                             if (response.credits == '0') {
                                 $('#alert').html(`<a target="_blank" href="${response.siteurl}/checkout">You have no remaining credits. You can get more here.</a>`)
