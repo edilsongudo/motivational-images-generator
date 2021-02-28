@@ -143,12 +143,11 @@ class Posts:
                 #     draw.text(((W - width) / 2, y_text / 1.9), line, fill='rgba(255, 255, 255, 0)', font=font)
                 #     y_text += height * 2.2
 
-                for i in range(1, 4):
-                    w, h = image.size
-                    image = image.resize(  ( int(w/2), int(h/2)   )   )
-                    image.save(os.path.join(mediaroot, f"images/created/{i - 1}image{time}.png"))
+                w, h = image.size
+                image = image.resize(  ( int(w/5), int(h/5)   )   )
 
-                return [f"0image{time}.png", f"1image{time}.png", f"2image{time}.png"]
+                image.save(os.path.join(mediaroot, f"images/created/image{time}.png"))
+                return f"image{time}.png"
 
         except IndexError:
             print('Please upload an image to current directory /images/uploads')

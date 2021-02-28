@@ -127,7 +127,7 @@ def create(request):
 
     if request.is_ajax():
         return JsonResponse({'response': post, 'credits': request.user.profile.connects, 'siteurl': request.get_host()})
-    return render(request, 'posts/posts_create.html', {'media_url': mediaroot, 'post': post[0], 'title': 'Create Posts'})
+    return render(request, 'posts/posts_create.html', {'media_url': mediaroot, 'post': post, 'title': 'Create Posts'})
 
 
 @login_required
