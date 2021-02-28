@@ -1,0 +1,60 @@
+{% extends "posts/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<section class="first-banner">
+    <div class="left">
+        <h1><strong>Automate Posts creation</strong></h1>
+        <div class="first-banner-paragrahp">
+            <p>Contentify is a plataform that helps you create 100% automated and high quality posts for you social media profiles in seconds.</p>
+        </div>
+        <a href="{% url 'login' %}" class="btn btn-outline-info">Create Posts</a>
+    </div>
+</section>
+
+<!-- <div class="plans-h1">
+    <h3><strong>Check out our plans</strong></h3>
+    <p>See which plan mostly fit you.</p>
+</div>
+<section class="second-banner">
+    <div class="text">
+        <div class="price">
+            00$
+        </div>
+        <p>Limited Downloads</p>
+        <p>Costumize Posts</p>
+        <p>Upload your logo</p>
+        <p>Easy setup</p>
+        <a href="{% url 'login' %}" class="btn btn-outline-info">Free Trial</a>
+
+    </div>
+
+    <div class="text">
+        <div class="price">
+            05$
+        </div>
+        <p>40 downloads</p>
+        <p>Costumize Posts</p>
+        <p>Unlimited Downloads</p>
+        <p>Upload your logo</p>
+        <a href="{% url 'login' %}" class="btn btn-outline-info">Buy Now</a>
+
+    </div>
+
+    <div class="text">
+        <div class="price">
+            50$
+        </div>
+        <p>700 downloads</p>
+        <p>Costumize Posts</p>
+        <p>Unlimited Downloads</p>
+        <p>Upload your logo</p>
+        <a href="{% url 'login' %}" class="btn btn-outline-info">Buy Now</a>
+
+    </div>
+</section>
+
+<section>
+    <p></p>
+</section> -->
+{% endblock content %}

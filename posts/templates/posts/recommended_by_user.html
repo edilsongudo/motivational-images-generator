@@ -1,0 +1,7 @@
+{% extends "posts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% for profile in profiles %}
+        <p> <b>Username</b>: {{ profile.user.username }} <b>Email</b>: {{ profile.user.email }} <b>Date Joined:</b> {{ profile.user.date_joined }}</p>
+    {% endfor %}
+{% endblock content %}

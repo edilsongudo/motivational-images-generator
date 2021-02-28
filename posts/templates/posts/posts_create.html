@@ -1,0 +1,45 @@
+{% extends "posts/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block nav %}
+    <li class="nav-item">
+      <a href="{% url 'checkout' %}" class="nav-link">Buy Credits</a>
+    </li>
+<!--     <li class="nav-item">
+      <div class="nav-link">{{ user.profile.connects }} Downloads Remaning </div>
+    </li> -->
+{% endblock %}
+
+{% block content %}
+    <span id="remaining" class="nav-link" style="margin-left: auto; text-align: right; max-width: 50%;">{{ user.profile.connects }} Downloads Remaning</span>
+    <div class="alert alert-warning" id="alert" style="opacity: 0;"></div>
+
+    {% csrf_token %}
+    <div class="post-generator">
+        <a class="btn btn-outline-info" id="download" href="/media/images/download/{{ post }}" download>
+            <i class="fas fa-cloud-download-alt"></i>
+        </a>
+
+        <img src="/media/images/created/{{ post }}" oncontextmenu="return false;">
+
+        <a class="btn btn-outline-info" id="generate" href="{% url 'posts-create' %}" >
+            <i class="fas fa-paint-brush"></i>
+        </a>
+
+        <div class="spinner">
+
+        </div>
+
+    </div>
+    <div class="post-help">
+        <p>Click <span class="btn btn-outline-info"><i class="fas fa-paint-brush"></i></span> to generate posts
+            or <span class="btn btn-outline-info"><i class="fas fa-cloud-download-alt"></i></span> to download the posts you like.
+        You can always costumise the look of your posts in the "preferences".</p>
+    </div>
+{% endblock %}
+
+
+{% load static %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'posts/createpage.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "posts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Welcome {{ user.username }}</h1>
+    <p>You will earn 50% comission for user's lifetime transactions in this site, if they first arrive here by your recommendation. You can share the link bellow with anyone you desire, and we will identify the refferal.</p>
+    <p>Your unique Affiliate Link:</p>
+    <div class="ref" style="display: flex; flex-wrap: wrap;">
+    <input class="textinput textInput form-control" type="" name="" value="{{ domain }}/ref/{{ user.profile.code }}" style="max-width: 300px;">
+    <button class="btn btn-outline-info">Copy</button>
+    </div>
+    <p></p>
+    <div style="display: flex;">
+    <p style="margin-right: 20px;"><b>Clicks</b>: {{ user.profile.ref_code_clicks }}</p>
+    <p style="margin-right: 20px;"><b>Available Money</b>: ${{ user.profile.money }}</p>
+    </div>
+
+    <h5>Users recommended by {{ user.username }}</h5>
+    <a href="{% url 'recommended-by-user' %}" class="btn btn-outline-info">View</a>
+
+{% endblock content %}
+
+{% load static %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'posts/affiliatedashboard.js' %}"></script>
+{% endblock %}

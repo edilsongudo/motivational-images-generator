@@ -1,0 +1,17 @@
+{% extends "posts/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Hello {{ user.username }}</h1>
+{% else %}
+    <h1>Hello</h1>
+{% endif %}
+<p>You can start creating your awesome posts.</p>
+<p>Hint: Edit your preferences to change the look of your automated posts.</p>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <a class="btn btn-outline-info" href="{% url 'posts-preferences' %}">Preferences</a>
+    <a class="btn btn-outline-info" href="{% url 'posts-create' %}">Create Posts</a>
+  </form>
+{% endblock content %}
