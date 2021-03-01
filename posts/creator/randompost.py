@@ -125,15 +125,15 @@ class Posts:
 
             if preview == True:
                 w, h = image.size
-                image = image.resize(  ( int(w/4), int(h/4)   )   )
+                image = image.resize(  ( int(w/2), int(h/2)   )   )
 
                 time = str(datetime.datetime.now()).replace(':', '.')
-                image.save(os.path.join(mediaroot, f"images/preview/preview_{username}.png"))
-                image.save(os.path.join(mediaroot, f"images/temp/preview/preview_{username}_{time}.png"))
-                return f"preview_{username}_{time}.png"
+                image.save(os.path.join(mediaroot, f"images/preview/preview_{username}.jpg"))
+                image.save(os.path.join(mediaroot, f"images/temp/preview/preview_{username}_{time}.jpg"))
+                return f"preview_{username}_{time}.jpg"
             else:
                 time = str(datetime.datetime.now()).replace(':', '.')
-                image.save(os.path.join(mediaroot, f"images/download/image{time}.png"))
+                image.save(os.path.join(mediaroot, f"images/download/image{time}.jpg"))
 
                 # font = ImageFont.truetype(f'fonts/{secondary_font_type}', size=int((W / 40 * secondary_font_size)))
                 # text = 'Please, click heart icon to get no watermark image.'
@@ -146,8 +146,8 @@ class Posts:
                 w, h = image.size
                 image = image.resize(  ( int(w/2), int(h/2)   )   )
 
-                image.save(os.path.join(mediaroot, f"images/created/image{time}.png"))
-                return f"image{time}.png"
+                image.save(os.path.join(mediaroot, f"images/created/image{time}.jpg"))
+                return f"image{time}.jpg"
 
         except IndexError:
             print('Please upload an image to current directory /images/uploads')
