@@ -1,6 +1,6 @@
-$(window).on('load', function(){
-    $('img').css('display', 'block')
-})
+// $(window).on('load', function(){
+//     $('img').css('display', 'block')
+// })
 
 
 $(document).ready(function() {
@@ -35,7 +35,7 @@ $(document).ready(function() {
                             })
                             $('span.nav-link').text(response.credits + ' Downloads Remaining')
                             if (response.credits == '0') {
-                                $('#alert').html(`<a target="_blank" href="${response.siteurl}/checkout">You have no remaining credits. You can get more here.</a>`)
+                                $('#alert').html(`<a target="_blank" href="https://www.${response.siteurl}/checkout">You have no remaining credits. You can get more here.</a>`)
                                 $('#alert').css('opacity', 1)
                                 $('#remaining').css('display', 'none')
                                                         }

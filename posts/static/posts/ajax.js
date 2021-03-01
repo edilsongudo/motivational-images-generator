@@ -1,6 +1,6 @@
-$(window).on('load', function(){
-    $('.preview-image').css('display', 'block')
-})
+// $(window).on('load', function(){
+//     $('.preview-image').css('display', 'block')
+// })
 
 
 $(document).ready(function() {
