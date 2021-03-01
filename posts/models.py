@@ -76,7 +76,7 @@ class Profile(models.Model):
     logo_size = models.IntegerField(
         default=10, validators=[MinValueValidator(0), MaxValueValidator(100)])
     brightness = models.IntegerField(
-        default=50, validators=[MinValueValidator(0), MaxValueValidator(100)])
+        default=100, validators=[MinValueValidator(0), MaxValueValidator(100)])
     greyscale = models.BooleanField(default=False)
 
     def __str__(self):
