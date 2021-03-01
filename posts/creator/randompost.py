@@ -135,7 +135,7 @@ class Posts:
                 time = str(datetime.datetime.now()).replace(':', '.')
                 image.save(os.path.join(mediaroot, f"images/download/image{time}.jpg"))
 
-                font = ImageFont.truetype(os.path.join(FONT_DIR, 'BebasNeue Book'), size=int((W / 40 * 50 / 50)))
+                font = ImageFont.truetype(os.path.join(FONT_DIR, 'BebasNeue Book.otf'), size=int((W / 40 * 50 / 50)))
                 text = 'Press download button to download.'
                 lines = textwrap.wrap(text, width=40)
                 for line in lines:
