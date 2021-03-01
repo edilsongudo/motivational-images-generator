@@ -1,3 +1,8 @@
+$(window).on('load', function(){
+    $('.preview-image').css('display', 'block')
+})
+
+
 $(document).ready(function() {
 
     function getvalues() {

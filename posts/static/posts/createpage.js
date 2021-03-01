@@ -1,3 +1,8 @@
+$(window).on('load', function(){
+    $('img').css('display', 'block')
+})
+
+
 $(document).ready(function() {
 
 
