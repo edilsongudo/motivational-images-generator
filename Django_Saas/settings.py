@@ -25,7 +25,7 @@ SECRET_KEY = 'tf$5wv1u^9(871venra=%&i&^#3rmw36ee!h8*=sidn18m-53!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'cristiangrey.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'cristiangrey.pythonanywhere.com', 'www.contentfy.me', 'contentfy.me']
 
 
 # Application definition
