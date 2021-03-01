@@ -135,13 +135,13 @@ class Posts:
                 time = str(datetime.datetime.now()).replace(':', '.')
                 image.save(os.path.join(mediaroot, f"images/download/image{time}.jpg"))
 
-                # font = ImageFont.truetype(f'fonts/{secondary_font_type}', size=int((W / 40 * secondary_font_size)))
-                # text = 'Please, click heart icon to get no watermark image.'
-                # lines = textwrap.wrap(text, width=40)
-                # for line in lines:
-                #     width, height = font.getsize(line)
-                #     draw.text(((W - width) / 2, y_text / 1.9), line, fill='rgba(255, 255, 255, 0)', font=font)
-                #     y_text += height * 2.2
+                font = ImageFont.truetype(os.path.join(FONT_DIR, 'BebasNeue Book'), size=int((W / 40 * 50 / 50)))
+                text = 'Press download button to download.'
+                lines = textwrap.wrap(text, width=40)
+                for line in lines:
+                    width, height = font.getsize(line)
+                    draw.text(((W - width) / 2, y_text / 10), line, fill='rgba(255, 255, 255, 0)', font=font)
+                    y_text += height * 2.2
 
                 w, h = image.size
                 image = image.resize(  ( int(w/2), int(h/2)   )   )
