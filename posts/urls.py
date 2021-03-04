@@ -28,10 +28,31 @@ urlpatterns = [
     path('create/', views.create, name='posts-create'),
     path('preferences/', views.profile, name='posts-preferences'),
     path('dashboard/', views.affiliate_dashboard, name='affiliate-dashboard'),
-    path('recommended-by-user/', views.recommended_by_user, name='recommended-by-user'),
+    path('recommended-by-user/', views.recommended_by_user,
+         name='recommended-by-user'),
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='posts/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='posts/logout.html'), name='logout'),
+    path('password-reset/',
+         auth_views.PasswordResetView.as_view(
+             template_name='posts/password_reset.html'
+         ),
+         name='password_reset'),
+    path('password-reset/done/',
+         auth_views.PasswordResetDoneView.as_view(
+             template_name='posts/password_reset_done.html'
+         ),
+         name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(
+             template_name='posts/password_reset_confirm.html'
+         ),
+         name='password_reset_confirm'),
+    path('password-reset-complete/',
+         auth_views.PasswordResetCompleteView.as_view(
+             template_name='posts/password_reset_complete.html'
+         ),
+         name='password_reset_complete'),
     path('checkout/', views.checkout, name="checkout"),
     path('complete/', views.paymentComplete, name="complete"),
 ]
