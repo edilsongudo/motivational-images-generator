@@ -101,7 +101,7 @@ def create(request):
         texts = []
         files = os.listdir(os.path.join(settings.BASE_DIR, f'posts/creator/Texts/English'))
         for file in files:
-            with open(os.path.join(settings.BASE_DIR, f'posts/creator/Texts/English/{file}'), 'r') as file:
+            with open(os.path.join(settings.BASE_DIR, f'posts/creator/Texts/English/{file}'), 'r', encoding='utf-8') as file:
                 phrases = file.readlines()
                 for phrase in phrases:
                     texts.append(phrase)
@@ -110,7 +110,7 @@ def create(request):
         texts = []
         files = os.listdir(os.path.join(settings.BASE_DIR, f'posts/creator/Texts/Portugues'))
         for file in files:
-            with open(os.path.join(settings.BASE_DIR, f'posts/creator/Texts/Portugues/{file}'), 'r') as file:
+            with open(os.path.join(settings.BASE_DIR, f'posts/creator/Texts/Portugues/{file}'), 'r', encoding='utf-8') as file:
                 phrases = file.readlines()
                 for phrase in phrases:
                     texts.append(phrase)

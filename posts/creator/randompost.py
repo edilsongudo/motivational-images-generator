@@ -50,7 +50,7 @@ class Posts:
             IMAGE_DIR = os.path.join(mediaroot, 'images/uploads')
             FONT_DIR = os.path.join(mediaroot, 'fonts')
 
-            text = text.encode('utf-8').decode('ascii', 'ignore')
+            # text = text.encode('utf-8').decode('ascii', 'ignore') #This doesnt work with Portuguese
 
             if preview:
                 IMAGE_DIR = os.path.join(mediaroot, 'images')

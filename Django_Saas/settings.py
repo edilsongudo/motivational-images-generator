@@ -24,6 +24,7 @@ SECRET_KEY = 'tf$5wv1u^9(871venra=%&i&^#3rmw36ee!h8*=sidn18m-53!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+IN_PRODUCTION = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'cristiangrey.pythonanywhere.com', 'www.contentfy.me', 'contentfy.me']
 
@@ -75,13 +76,34 @@ WSGI_APPLICATION = 'Django_Saas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+if IN_PRODUCTION == False:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+elif IN_PRODUCTION == True:
+    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cristiangrey$saasdb',
+        'USER': 'cristiangrey',
+        'PASSWORD': 'testing321',
+        'HOST': 'cristiangrey.mysql.pythonanywhere-services.com',
     }
 }
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'cristiangrey$saasdb',
+#         'USER': 'cristiangrey',
+#         'PASSWORD': 'saasdbHallofFame',
+#         'HOST': 'cristiangrey.mysql.pythonanywhere-services.com',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -120,7 +142,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/home/cristiangrey/django/posts/static'
+
+if IN_PRODUCTION:
+    STATIC_ROOT = '/home/cristiangrey/django/posts/static'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
