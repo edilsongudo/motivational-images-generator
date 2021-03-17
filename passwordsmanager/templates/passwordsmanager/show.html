@@ -1,0 +1,14 @@
+{% extends "passwordsmanager/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1>My Passwords</h1>
+
+    {% for entry in entries %}
+    <div style="background: #FFDEFD; padding: 15px; border-radius: 6px; margin-bottom: 10px; color: black;">
+        <div><b>Site:</b> {{ entry.site_name }}</div> <div><b>Email:</b> {{ entry.site_email_used }}</div> <div><b>Password:</b> {{ entry.site_password_used }}</div>
+        <!-- <a class="btn btn-outline-info" href="#">Edit</a> -->
+        <a class="btn btn-custom" href="{% url 'entry-delete' entry.pk %}">Delete</a>
+    </div>
+    {% endfor %}
+{% endblock %}

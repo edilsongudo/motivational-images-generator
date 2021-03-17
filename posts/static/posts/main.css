@@ -97,7 +97,7 @@ margin-bottom: 25px;
 /*-----Home ----*/
 .first-banner {
   display: flex;
-  background-image: url(../posts/PNG/Examples/bg1-2.png);
+  background-image: url(../posts/PNG/Examples/bg7-1.png);
   background-repeat: no-repeat;
   background-position: right;
 }
@@ -115,6 +115,23 @@ margin-bottom: 25px;
   font-size: 4.25rem;
   line-height: 4.875rem;
   color: #348AC7;
+}
+
+@media (max-width: 530px) {
+  .left h1 {
+    font-size: 3.25rem;
+    line-height: 2.5rem;
+  }
+
+  .left p {
+    font-size: 0.9rem;
+  }
+
+.first-banner {
+  background-position: center;
+}
+
+
 }
 
 p {
@@ -151,6 +168,11 @@ p {
 .plans-h1 {
   margin-top: 5rem;
  text-align: center;
+}
+
+.third-banner {
+  padding-top: 50px;
+  min-height: 300px;
 }
 
 .spinner {

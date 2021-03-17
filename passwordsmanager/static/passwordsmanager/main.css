@@ -1,0 +1,44 @@
+body {
+  background: #90308a;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+
+
+
+.form-control {
+  border-radius: 20px;
+}
+
+.btn-custom {
+  background: #E23962;
+  color: white;
+  border-radius: 24px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 14px;
+}
+
+nav {
+background-image: linear-gradient(-90deg, #90308a, #90308a);
+margin-bottom: 25px;
+box-shadow: 1px 1px 1px 1px #8D1D87;
+}
+
+.form-container {
+  margin-right: auto;
+  margin-left: 3%;
+  margin-right: 3%;
+
+}
+@media (max-width: 530px) {
+  .form-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 320px) {
+  .btn {
+    margin-bottom: 10px;
+  }
+}

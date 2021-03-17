@@ -1,0 +1,8 @@
+{% extends "passwordsmanager/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>Passwords Manager</h2>
+<p>Safely store your passwords.</p>
+    <a class="btn btn-custom" href="{% url 'entry-create' %}">New Entry</a>
+    <a class="btn btn-custom" href="{% url 'mypasswords' %}">List Passwords</a>
+{% endblock content %}

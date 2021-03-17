@@ -26,13 +26,14 @@ SECRET_KEY = 'tf$5wv1u^9(871venra=%&i&^#3rmw36ee!h8*=sidn18m-53!'
 DEBUG = True
 IN_PRODUCTION = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'cristiangrey.pythonanywhere.com', 'www.contentfy.me', 'contentfy.me']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'cristiangrey.pythonanywhere.com', 'www.contentfy.me', 'contentfy.me','5910455cd797.ngrok.io']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'posts.apps.PostsConfig',
+    'passwordsmanager.apps.PasswordsmanagerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

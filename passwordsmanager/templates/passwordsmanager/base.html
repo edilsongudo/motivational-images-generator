@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'passwordsmanager/fontawesome-free-5.15.2-web/css/all.css' %}?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'passwordsmanager/bootstrap.min.css' %}?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'passwordsmanager/main.css' %}?{% now "U" %}">
+
+    {% if title %}
+        <title>Password Manager - {{ title }}</title>
+    {% else %}
+        <title>Password Manager</title>
+    {% endif %}
+  </head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <a class="navbar-brand" href="{% url 'passwords-home' %}">Pass Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item"> <!-- active -->
+          <a class="nav-link" href="{% url 'entry-create' %}">Create</a>
+        </li>
+        <li class="nav-item"> <!-- active -->
+          <a class="nav-link" href="{% url 'mypasswords' %}">Passwords</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'master' %}">Master</a>
+          </li>
+          {% block nav %}
+          {% endblock %}
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container">
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="form-container">
+        {% block form %}
+        {% endblock %}
+    </div>
+
+      <script type="text/javascript" src="{% static 'passwordsmanager/jquery.js' %}"></script>
+
+      <script type="text/javascript" src="{% static 'passwordsmanager/popper.min.js' %}"></script>
+
+      <script type="text/javascript" src="{% static 'passwordsmanager/bootstrap.min.js' %}"></script>
+
+      <script type="text/javascript" src="{% static 'passwordsmanager/base.js' %}"></script>
+
+      {% block js %}
+      {% endblock %}
+
+  </body>
+</html>
