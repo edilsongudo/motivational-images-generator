@@ -1,5 +1,16 @@
 # Django Posts Generator (with screenshots)
-A web application to create automatic social media posts. It has built in photo editor, an affiliate system and Paypal payment integration.
+A web application to create automated social media posts. 
+
+It has the following features: 
+* A built in photo editor (to save posts preferences);
+* An affiliate system;
+* A Paypal payment integration;
+* Authentication
+
+Additional Features:
+* Clicks in refferal links
+* Premium Features
+* User statics to admin of the site
 
 ### Live Project
 contentfy.me
