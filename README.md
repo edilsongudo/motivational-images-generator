@@ -19,9 +19,18 @@ contentfy.me
 <img src="screenshots/screenshot6.png" width="550">
 
 
-### Installation
+### Installation and Usage
+
+Open cmd in the projects directory (cmd/control + Shift) and type:
+```
+pip install -r requirements.txt
 
 ```
-pip install django Pillow django-crispy-forms
+Open Django_Saas/settings.py in your text editor and replace the SECRET_KEY with a 50 characters text
+You can change the email backend credentials too.
+
+then in your cmd type:
 ```
-This is a site that helps you create awesome posts for you social media profiles in Seconds.
+python manage.py runserver
+
+```
