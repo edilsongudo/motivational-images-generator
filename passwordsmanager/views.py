@@ -3,36 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
-
+from .password_logic import *
 import hashlib
-import base64
-import os
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from cryptography.fernet import Fernet
 
-
-def generate_key(password_provided):
-    password = password_provided.encode()
-    salt = b'Do\xdbw>\xc4\x99\xea/\xc4~j\xe2\x86\x16M'
-    kdf = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt,
-                     iterations=100000, backend=default_backend())
-
-    key = base64.urlsafe_b64encode(kdf.derive(password))
-    return key.decode()
-
-
-def encrypt(message, key):
-    f = Fernet(key)
-    encrypted = f.encrypt(message.encode())
-    return encrypted.decode()
-
-
-def decrypt(encrypted, key):
-    f = Fernet(key)
-    decrypted = f.decrypt(encrypted)
-    return decrypted.decode()
 
 @login_required
 def create(request):
@@ -153,7 +126,11 @@ def showpasswords(request):
                 entries = Entry.objects.filter(author=request.user)
 
                 for entry in entries:
-                    entry.site_password_used = decrypt(encrypted=entry.site_password_used.encode() ,key=key.encode())
+                    # ERROR IS IN THIS LINE
+                    entry_password = decrypt(encrypted=entry.site_password_used.encode() ,key=key.encode())
+                    print('SITE PASSWORD USED : ',entry.site_password_used)
+                    print('ENTRY PASSWORD: ',entry_password)
+                    entry.site_password_used = entry_password
 
                 return render(request, 'passwordsmanager/show.html', {'entries': entries})
             else:
